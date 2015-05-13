@@ -5,8 +5,8 @@ better-buffer-inspect
 [![Build status][travis-image]][travis-url]
 
 better-buffer-inspect makes `util.inspect(aBuffer)` show the size of
-the buffer, as well as its text content if it is <= 512 bytes and decodes
-as UTF-8.
+an io.js Buffer, as well as its text content if it is <= 512 bytes and
+decodes as UTF-8.
 
 
 Install
@@ -27,7 +27,7 @@ npm install ludios/better-buffer-inspect --save
 
 API
 ---
-Require `better-buffer-inspect` to override `Buffer.prototype.inspect`.
+Requiring `better-buffer-inspect` will override `Buffer.prototype.inspect`.
 
 ```js
 > require('better-buffer-inspect');
