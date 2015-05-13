@@ -1,6 +1,5 @@
 "use strict";
 
-const buffer = require('buffer');
 const util = require('util');
 
 exports.INSPECT_MAX_BYTES = 50;
