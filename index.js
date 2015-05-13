@@ -14,7 +14,7 @@ Buffer.prototype.inspect = function inspect() {
 		// Make sure it round-trips back to the same buffer
 		// before displaying it.
 		if(this.equals(new Buffer(decoded, 'utf-8'))) {
-			return '<' + this.constructor.name + ' utf8 ' + util.inspect(decoded) + '>';
+			return `<${this.constructor.name} utf8 ${util.inspect(decoded)}>`;
 		}
 	}
 	let str = '';
@@ -25,5 +25,5 @@ Buffer.prototype.inspect = function inspect() {
 			str += ' ... ';
 		}
 	}
-	return '<' + this.constructor.name + ' ' + str + '>';
+	return `<${this.constructor.name} ${str}>`;
 };
