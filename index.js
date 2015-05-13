@@ -3,27 +3,25 @@
 const buffer = require('buffer');
 const util = require('util');
 
-// TODO: add buffer length
-
 exports.INSPECT_MAX_BYTES = 50;
 exports.INSPECT_AS_STRING_LIMIT = 512;
 
 Buffer.prototype.inspect = function inspect() {
-	if(this.length <= exports.INSPECT_AS_STRING_LIMIT) {
+	if(this.length > 0 && this.length <= exports.INSPECT_AS_STRING_LIMIT) {
 		const decoded = this.toString('utf-8');
 		// Make sure it round-trips back to the same buffer
 		// before displaying it.
 		if(this.equals(new Buffer(decoded, 'utf-8'))) {
-			return `<${this.constructor.name} utf8 ${util.inspect(decoded)}>`;
+			return `<${this.constructor.name} len=${this.length}: utf8 ${util.inspect(decoded)}>`;
 		}
 	}
 	let str = '';
 	const maxBytes = exports.INSPECT_MAX_BYTES;
 	if(this.length > 0) {
-		str = this.toString('hex', 0, maxBytes).match(/.{2}/g).join(' ');
+		str = ': ' + this.toString('hex', 0, maxBytes).match(/.{2}/g).join(' ');
 		if(this.length > maxBytes) {
 			str += ' ... ';
 		}
 	}
-	return `<${this.constructor.name} ${str}>`;
+	return `<${this.constructor.name} len=${this.length}${str}>`;
 };
