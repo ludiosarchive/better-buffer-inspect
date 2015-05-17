@@ -1,3 +1,6 @@
+"use strong";
+"use strict";
+
 require('..');
 const assert = require('assert');
 const inspect = require('util').inspect;

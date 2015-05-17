@@ -1,13 +1,14 @@
 {
   "name": "better-buffer-inspect",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Monkeypatch Buffer.prototype.inspect to show size and also text content if UTF-8",
   "homepage": "https://github.com/ludios/better-buffer-inspect",
   "issues": "https://github.com/ludios/better-buffer-inspect/issues",
   "keywords": ["buffer", "inspect"],
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha tests/*.js"
+    "test": "./node_modules/.bin/mocha tests/*.js",
+    "test-strong-mode": "iojs --strong_mode ./node_modules/.bin/_mocha tests/*.js"
   },
   "devDependencies": {
     "mocha": "^2.2.1"

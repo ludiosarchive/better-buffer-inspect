@@ -1,3 +1,4 @@
+"use strong";
 "use strict";
 
 const util = require('util');
